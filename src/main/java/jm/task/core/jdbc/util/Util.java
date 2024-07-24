@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Util {
     // реализуйте настройку соеденения с БД
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection conn = null;
         String URL = "jdbc:mysql://localhost:3306/mydbtest";
         String USER = "root";
