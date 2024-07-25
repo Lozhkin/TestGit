@@ -26,6 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection connection = Util.getConnection(); Statement statement = connection.createStatement()) {
             statement.execute(sqlStatement);
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -35,6 +36,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection connection = Util.getConnection(); Statement statement = connection.createStatement()){
             statement.execute(sqlStatement);
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -51,6 +53,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -64,6 +67,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -83,6 +87,7 @@ public class UserDaoJDBCImpl implements UserDao {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return users;
     }
@@ -95,6 +100,7 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.execute(sqlStatement);
 
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
