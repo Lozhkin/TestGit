@@ -1,10 +1,19 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
+    //Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl
+    //должны быть реализованы с помощью SQL.
+
+    private final SessionFactory sessionFactory = Util.getSessionFactory();
+
     public UserDaoHibernateImpl() {
 
     }
@@ -32,7 +41,11 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        List<User> users = new ArrayList<User>();
+        Session session = sessionFactory.openSession();
+
+        session.close();
+        return users;
     }
 
     @Override
