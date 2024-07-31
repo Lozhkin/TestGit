@@ -15,7 +15,7 @@ public class UserDaoJDBCImpl implements UserDao {
     @Override
     public void createUsersTable() {
         String sqlStatement = """
-                CREATE TABLE `mydbtest`.`users` (
+                CREATE TABLE IF NOT EXISTS `mydbtest`.`users` (
                   `id` INT NOT NULL AUTO_INCREMENT,
                   `name` VARCHAR(45) NULL,
                   `lastName` VARCHAR(45) NULL,
@@ -32,7 +32,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        String sqlStatement = "DROP TABLE users;";
+        String sqlStatement = "DROP TABLE IF EXISTS users;";
         try (Connection connection = Util.getConnection(); Statement statement = connection.createStatement()){
             statement.execute(sqlStatement);
         } catch (SQLException e) {
