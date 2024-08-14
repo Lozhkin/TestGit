@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Cars</title>
-</head>
-<body>
 
-<div th:each="car : ${cars}">
-    <h1 th:text="${car}">VALUE</h1>
-</div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cars</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+    </head>
 
-</body>
+    <body>
+        <table class="table table-dark" th:if="${!cars.isEmpty}">
+            <thead>
+                <tr>
+                    <th scope="col">Make</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Year</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car, iterStat : ${cars}"
+                th:if="${count == null || count <= 0 || iterStat.count <= count}">
+                <td th:text="${car.make}" />
+                <td th:text="${car.model}" />
+                <td th:text="${car.year}" />
+            </tr>
+            </tbody>
+        </table>
+
+    </body>
 </html>
