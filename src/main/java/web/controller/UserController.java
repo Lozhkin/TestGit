@@ -11,6 +11,7 @@ import web.service.UserService;
 import web.service.UserServiceImpl;
 
 @Controller
+@RequestMapping("/")
 public class UserController {
 
     private final UserService userService;
