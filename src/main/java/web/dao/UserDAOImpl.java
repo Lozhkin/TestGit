@@ -15,7 +15,7 @@ public class UserDAOImpl implements UserDAO {
     private EntityManager entityManager;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> getUsers() {
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
@@ -27,7 +27,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public User readUser(Long id) {
         return entityManager.find(User.class, id);
     }

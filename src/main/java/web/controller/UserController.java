@@ -19,12 +19,12 @@ public class UserController {
     }
 
     @GetMapping()
-    public String index() {
+    public String printIndexPage() {
         return "index";
     }
 
     @GetMapping("/users")
-    public String users(@RequestParam(value = "count", required = false, defaultValue = "20") Integer count, Model model) {
+    public String printUsersPage(@RequestParam(value = "count", required = false, defaultValue = "20") Integer count, Model model) {
         model.addAttribute("users", userService.getUsers());
         model.addAttribute("count", count);
 
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/users/user")
-    public String user(@RequestParam(value = "id", required = false) Long id,
+    public String printUserPage(@RequestParam(value = "id", required = false) Long id,
                        @RequestParam(value = "mode", defaultValue = "edit") String mode,
                        Model model) {
         if (id != null) {
