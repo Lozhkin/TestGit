@@ -39,13 +39,13 @@
                     <td>
                         <a th:href="@{/users/user(id=${user.id}, mode='view')}" class="link-name" th:text="${user.getName()}"></a>
                     </td>
-                    <td th:text="${user.surName}" />
+                    <td th:text="${user.surname}" />
                     <td th:text="${user.age}" />
                     <td>
-                        <input type="button" value="Edit" th:attr="onclick=|window.location.href='@{/users/user(id=${user.id}, mode='edit')}'|">
+                        <input type="button" value="Edit" th:attr="onclick=|window.location.href='@{/admin/users/user(id=${user.id}, mode='edit')}'|">
                     </td>
                     <td>
-                        <form th:method="delete" th:action="@{/users/delete(id=${user.id})}" style="display: inline;">
+                        <form th:method="delete" th:action="@{/admin/users/delete(id=${user.id})}" style="display: inline;">
                             <button type="submit" value="Delete">Delete</button>
                         </form>
                     </td>
@@ -53,6 +53,6 @@
             </tbody>
         </table>
         <br>
-        <input type="button" value="Add user" th:attr="onclick=|window.location.href='@{/users/user(mode='create')}'|">
+        <input type="button" value="Add user" th:attr="onclick=|window.location.href='@{/admin/users/user(mode='create')}'|">
     </body>
 </html>

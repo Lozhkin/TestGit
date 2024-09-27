@@ -23,7 +23,18 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/admin")
+    public String admin() {
+        return "redirect:/admin/users";
+    }
+
+    @GetMapping("/user")
+    public String user(Model model) {
+        model.addAttribute("user", new User());
+        return "user";
+    }
+
+    @GetMapping("/admin/users")
     public String printUsersPage(@RequestParam(value = "count", required = false, defaultValue = "20") Integer count, Model model) {
         model.addAttribute("users", userService.getUsers());
         model.addAttribute("count", count);
@@ -31,7 +42,7 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/users/user")
+    @GetMapping("/admin/users/user")
     public String printUserPage(@RequestParam(value = "id", required = false) Long id,
                                 @RequestParam(value = "mode", defaultValue = "edit") String mode,
                                 Model model) {
@@ -44,23 +55,23 @@ public class UserController {
         return "user-card";
     }
 
-    @PostMapping("/users")
+    @PostMapping("/admin/users")
     public String saveUser(User user, Model model) {
         model.addAttribute("user", user);
         userService.createUser(user);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 
-    @PatchMapping("/users")
+    @PatchMapping("/admin/users")
     public String updateUser(@RequestParam("id") Long id, User user, Model model) {
         model.addAttribute("user", user);
         userService.updateUser(id, user);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 
-    @DeleteMapping("/users/delete")
+    @DeleteMapping("/admin/users/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 }

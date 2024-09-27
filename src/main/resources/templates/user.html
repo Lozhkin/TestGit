@@ -1,11 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <title>Spring Security Example</title>
-</head>
-<body>
-<h1>User, welcome spring boot security page!</h1>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
 
+<head>
+    <meta charset="UTF-8">
+    <title>User card</title>
+</head>
+
+<body>
+<h2>User page</h2>
+<br>
+
+    <input type="hidden" th:name="id" th:value="${user.id}" />
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <label>Name:</label>
+                </td>
+                <td>
+                    <p th:text="${user.name}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Surname:</label>
+                </td>
+                <td>
+                    <p th:text="${user.surname}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Age:</label>
+                </td>
+                <td>
+                    <p th:text="${user.age}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email:</label>
+                </td>
+                <td>
+                    <p th:text="${user.email}" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
+
 </html>

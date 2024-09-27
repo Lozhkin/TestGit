@@ -11,7 +11,7 @@
         <h2>User card</h2>
         <br>
 
-        <form th:action="@{/users}"
+        <form th:action="@{/admin/users}"
               th:object="${user}"
               th:method="${mode == 'edit' ? 'patch' : 'post'}">
 
@@ -40,7 +40,7 @@
                                 <label>Surname:</label>
                             </td>
                             <td>
-                                <input type="text" th:field="${user.surName}" th:readonly="${mode == 'view'}" />
+                                <input type="text" th:field="${user.surname}" th:readonly="${mode == 'view'}" />
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +67,7 @@
                 <button type="submit">Update</button>
             </div>
             <div th:if="${mode == 'view'}">
-                <a th:href="@{/users}">OK</a>
+                <a th:href="@{/admin/users}">OK</a>
             </div>
             <div th:if="${mode == 'create'}">
                 <button type="submit">Create</button>
